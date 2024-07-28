@@ -22,9 +22,9 @@
 
      // orderパラメータの値によってSQL文を変更する    
      if ($order === 'desc') {
-        $sql_select = 'SELECT * FROM books WHERE books_name LIKE :keyword ORDER BY updated_at DESC';
+        $sql_select = 'SELECT * FROM books WHERE book_name LIKE :keyword ORDER BY updated_at DESC';
         } else {
-            $sql_select = 'SELECT * FROM books WHERE books_name LIKE :keyword ORDER BY updated_at ASC';
+            $sql_select = 'SELECT * FROM books WHERE book_name LIKE :keyword ORDER BY updated_at ASC';
         }
  
      // SQL文を用意する
@@ -51,7 +51,7 @@
      $stmt_select->execute();
  
      // SQL文の実行結果を配列で取得する
-     $products = $stmt_select->fetchAll(PDO::FETCH_ASSOC);
+     $books = $stmt_select->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             exit($e->getMessage());
         }
